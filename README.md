@@ -80,14 +80,13 @@ WHERE sale_date = '2022-11-05';
 2. **Write a SQL query to retrieve all transactions where the category is 'Clothing' and the quantity sold is more than 4 in the month of Nov-2022**:
 ```sql
 SELECT 
-  *
+	*
 FROM retail_sales
 WHERE 
-    category = 'Clothing'
-    AND 
-    TO_CHAR(sale_date, 'YYYY-MM') = '2022-11'
-    AND
-    quantity >= 4
+	category = 'Clothing'
+	AND sale_date BETWEEN  '2022-11-01' AND '2022-11-30'     -- TO_CHAR(sale_date, 'YYYY-MM') = '2022-11'
+	AND quantiy >=3
+GROUP BY 1
 ```
 
 3. **Write a SQL query to calculate the total sales (total_sale) for each category.**:
@@ -117,15 +116,12 @@ WHERE total_sale > 1000
 6. **Write a SQL query to find the total number of transactions (transaction_id) made by each gender in each category.**:
 ```sql
 SELECT 
-    category,
-    gender,
-    COUNT(*) as total_trans
+	gender,
+	category,
+	COUNT (*) as Total_transaction
 FROM retail_sales
-GROUP 
-    BY 
-    category,
-    gender
-ORDER BY 1
+GROUP BY 1,2
+ORDER BY 2
 ```
 
 7. **Write a SQL query to calculate the average sale for each month. Find out best selling month in each year**:
@@ -225,3 +221,4 @@ For more content on SQL, data analysis, and other data-related topics, make sure
 - **Discord**: [Join our community to learn and grow together](https://discord.gg/36h5f2Z5PK)
 
 Thank you for your support, and I look forward to connecting with you!
+
